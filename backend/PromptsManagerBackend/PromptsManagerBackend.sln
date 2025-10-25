@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36401.2 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PromptsManager.API", "PromptsManager.API\PromptsManager.API.csproj", "{6204EE80-385C-43DD-8609-0523E148ACAD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6204EE80-385C-43DD-8609-0523E148ACAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6204EE80-385C-43DD-8609-0523E148ACAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6204EE80-385C-43DD-8609-0523E148ACAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6204EE80-385C-43DD-8609-0523E148ACAD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {04918BDE-154D-4124-9398-3D1A53B76A84}
+	EndGlobalSection
+EndGlobal
