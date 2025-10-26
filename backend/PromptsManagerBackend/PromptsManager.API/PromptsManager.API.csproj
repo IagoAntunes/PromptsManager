@@ -4,10 +4,18 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>326a6749-1aca-4707-ba3d-9b39a7311260</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="12.0.0" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PromptsManager.Application\PromptsManager.Application.csproj" />
+    <ProjectReference Include="..\PromptsManager.Infrastructure\PromptsManager.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
