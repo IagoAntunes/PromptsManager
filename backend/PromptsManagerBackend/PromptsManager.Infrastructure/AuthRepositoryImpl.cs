@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using PromptsManager.Application.Service.Interface;
 using PromptsManager.Core.Utils;
 using PromptsManager.Domain.Entities;
+using PromptsManager.Domain.Errors;
 using PromptsManager.Domain.Repository;
 using PromptsManager.Domain.Result;
 using PromptsManager.Infrastructure.Data;
@@ -50,14 +51,14 @@ namespace PromptsManager.Infrastructure
                 // Não vaze existência do usuário. Pequeno delay para dificultar enumeração.
                 _logger.LogWarning("Login attempt with unknown email {Email}", normalized);
                 await Task.Delay(250);
-                return ResultOfT<AuthResult>.Failure(Error.BadRequest);
+                return ResultOfT<AuthResult>.Failure(AuthErrors.InvalidCredentials);
             }
 
             // Check lockout
             if (user.LockoutEnd.HasValue && user.LockoutEnd.Value > DateTimeOffset.UtcNow)
             {
                 _logger.LogWarning("Account locked out for user {UserId} until {LockoutEnd}", user.Id, user.LockoutEnd);
-                return ResultOfT<AuthResult>.Failure(Error.BadRequest);
+                return ResultOfT<AuthResult>.Failure(AuthErrors.BlockedAttempts);
             }
 
             var verification = _passwordHasher.VerifyHashedPassword(user, user.PasswordHash, password);
@@ -72,7 +73,7 @@ namespace PromptsManager.Infrastructure
                 }
 
                 await _db.SaveChangesAsync();
-                return ResultOfT<AuthResult>.Failure(Error.BadRequest);
+                return ResultOfT<AuthResult>.Failure(AuthErrors.InvalidCredentials);
             }
 
             // Successful login: reset counters
@@ -107,7 +108,7 @@ namespace PromptsManager.Infrastructure
             var emailAlreadyExists = await _db.Users.AnyAsync(u => u.EmailNormalized == email.Trim().ToLowerInvariant());   
             if(emailAlreadyExists)
             {
-                return ResultBase.Failure(Error.BadRequest);
+                return ResultBase.Failure(AuthErrors.EmailAlreadyVinculated);
             }
 
             var userEntity = new UserEntity
