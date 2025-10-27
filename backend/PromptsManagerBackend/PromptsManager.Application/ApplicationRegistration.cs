@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using PromptsManager.Application.Mapping;
 using PromptsManager.Application.Service.Implementation;
 using PromptsManager.Application.Service.Interface;
 namespace PromptsManager.Application
@@ -11,10 +12,11 @@ namespace PromptsManager.Application
         {
             services.AddAutoMapper(cfg =>
             {
-                
+                cfg.AddProfile<RequestToDtoMapper>();
             });
             services.AddScoped<IAuthService, AuthServiceImpl>();
             services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<IPromptService, PromptServiceImpl>();
             return services;
         }
     }
