@@ -34,7 +34,7 @@ namespace PromptsManager.Infrastructure
             _logger = logger;
         }
 
-        public async Task<ResultOfT<AuthResult>> Login(string email, string password, string? remoteIp = null)
+        public async Task<ResultOfT<AuthResult>> Login(string email, string password)
         {
             if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
                 return ResultOfT<AuthResult>.Failure(Error.BadRequest);

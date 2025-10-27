@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PromptsManager.Application.Request;
 using PromptsManager.Application.Service.Interface;
 using PromptsManager.Core.Utils;
@@ -35,5 +36,12 @@ namespace PromptsManager.API.Controllers
 
             return result.ToActionResult();
         }
+
+        [Authorize]
+        [HttpGet("teste")]
+        public async Task<IActionResult> Teste()
+        {
+            return Ok();
+        }   
     }
 }
