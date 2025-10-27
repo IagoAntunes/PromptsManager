@@ -1,10 +1,11 @@
 ﻿using PromptsManager.Core.Utils;
+using PromptsManager.Domain.Result;
 
 namespace PromptsManager.Domain.Repository
 {
     public interface IAuthRepository
     {
-        public Task<ResultBase> Login(string email, string password);
-        public Task<ResultBase> Register(string username, string password, string email);
+        Task<ResultOfT<AuthResult>> Login(string email, string password, string? remoteIp = null);
+        public Task<ResultBase> Register(string email, string password);
     }
 }

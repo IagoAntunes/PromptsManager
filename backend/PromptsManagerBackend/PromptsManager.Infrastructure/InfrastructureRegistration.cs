@@ -1,6 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PromptsManager.Domain.Entities;
 using PromptsManager.Domain.Repository;
 using PromptsManager.Infrastructure.Data;
 
@@ -20,6 +22,7 @@ namespace PromptsManager.Infrastructure
                )
             );
             services.AddScoped<IAuthRepository,AuthRepositoryImpl>();
+            services.AddScoped<IPasswordHasher<UserEntity>, PasswordHasher<UserEntity>>();
             return services;
         }
 

@@ -13,9 +13,11 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="9.0.10" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PromptsManager.Application\PromptsManager.Application.csproj" />
     <ProjectReference Include="..\PromptsManager.Domain\PromptsManager.Domain.csproj" />
   </ItemGroup>
 

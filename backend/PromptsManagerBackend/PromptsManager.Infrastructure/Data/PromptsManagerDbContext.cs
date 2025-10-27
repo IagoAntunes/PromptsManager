@@ -14,7 +14,22 @@ namespace PromptsManager.Infrastructure.Data
 
         public DbSet<UserEntity> Users => Set<UserEntity>();
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<UserEntity>()
+                .HasIndex(u => u.EmailNormalized)
+                .IsUnique();
 
+            modelBuilder.Entity<UserEntity>()
+                .Property(u => u.Email)
+                .HasMaxLength(256);
+
+            modelBuilder.Entity<UserEntity>()
+                .Property(u => u.EmailNormalized)
+                .HasMaxLength(256);
+
+        }
 
     }
 }

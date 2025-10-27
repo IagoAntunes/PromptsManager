@@ -14,7 +14,7 @@ namespace PromptsManager.Application
                 
             });
             services.AddScoped<IAuthService, AuthServiceImpl>();
-            services.AddScoped<IJwtService, JwtServiceImpl>();
+            services.AddScoped<ITokenService, TokenService>();
             return services;
         }
     }

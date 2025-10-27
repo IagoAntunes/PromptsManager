@@ -3,6 +3,7 @@ using PromptsManager.Application.Request;
 using PromptsManager.Application.Service.Interface;
 using PromptsManager.Core.Utils;
 using PromptsManager.Domain.Repository;
+using PromptsManager.Domain.Result;
 
 namespace PromptsManager.Application.Service.Implementation
 {
@@ -10,12 +11,12 @@ namespace PromptsManager.Application.Service.Implementation
     {
         private readonly IMapper _mapper;
         private readonly IAuthRepository _authRepository;
-        private readonly IJwtService _jwtService;
+        private readonly ITokenService _jwtService;
 
         public AuthServiceImpl(
             IMapper mapper,
             IAuthRepository authRepository,
-            IJwtService jwtService
+            ITokenService jwtService
         )
         {
             this._mapper = mapper;
@@ -23,14 +24,20 @@ namespace PromptsManager.Application.Service.Implementation
             this._jwtService = jwtService;
         }
 
-        public Task<ResultBase> Login(LoginUserRequest request)
+        public Task<ResultOfT<AuthResult>> Login(LoginUserRequest request)
         {
-            throw new NotImplementedException();
+            return _authRepository.Login(
+                request.Email,
+                request.Password
+            );
         }
 
         public Task<ResultBase> Register(RegisterUserRequest request)
         {
-            throw new NotImplementedException();
+            return _authRepository.Register(
+                request.Email,
+                request.Password
+            );
         }
     }
 }
