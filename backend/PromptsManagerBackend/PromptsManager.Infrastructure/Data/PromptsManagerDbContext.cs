@@ -13,6 +13,7 @@ namespace PromptsManager.Infrastructure.Data
         }
 
         public DbSet<UserEntity> Users => Set<UserEntity>();
+        public DbSet<PromptEntity> Prompts => Set<PromptEntity>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -28,6 +29,9 @@ namespace PromptsManager.Infrastructure.Data
             modelBuilder.Entity<UserEntity>()
                 .Property(u => u.EmailNormalized)
                 .HasMaxLength(256);
+
+
+
 
         }
 

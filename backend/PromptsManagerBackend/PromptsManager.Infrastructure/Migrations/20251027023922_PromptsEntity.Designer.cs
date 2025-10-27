@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PromptsManager.Infrastructure.Data;
 
@@ -11,9 +12,11 @@ using PromptsManager.Infrastructure.Data;
 namespace PromptsManager.Infrastructure.Migrations
 {
     [DbContext(typeof(PromptsManagerDbContext))]
-    partial class PromptsManagerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251027023922_PromptsEntity")]
+    partial class PromptsEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

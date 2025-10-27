@@ -22,5 +22,11 @@ namespace PromptsManager.Domain.Entities
         public int AccessFailedCount { get; set; }
         public DateTimeOffset? LockoutEnd { get; set; }
 
+        public ICollection<PromptEntity> Prompts { get; set; }
+
+        public UserEntity()
+        {
+            Prompts = new List<PromptEntity>();
+        }
     }
 }
