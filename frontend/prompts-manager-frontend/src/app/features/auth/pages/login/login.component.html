@@ -1,0 +1,49 @@
+<div class="container-fluid vh-100 p-0">
+    <div class="row g-0 h-100"> 
+        <div class="col-md-7 d-none d-md-block">
+            <div class="bg-part">
+                <img src="assets/img_bg.png" alt="">
+            </div>
+        </div>
+        
+        <div class="col-md-5 d-flex flex-column justify-content-center align-items-center p-5 auth-part">
+            <img src="assets/text_logo.svg" alt="Logo" class="logo mb-4">
+            
+            <div class="login-card">
+                <div class="card-body p-4 p-md-5 login-form-section">
+                    <h2 class="card-title">Acesse o site</h2>
+                    <p class="mb-4" *ngIf="isLogin">Entre usando seu e-mail e senha cadastrados</p>
+                    <p class="mb-4" *ngIf="!isLogin">Registre para acessar o site</p>
+                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <app-custom-input
+                            formControlName="email"
+                            label="E-mail"
+                            inputId="email"
+                            inputType="email"
+                            iconName="bi-envelope"> 
+                        </app-custom-input>
+
+                        <app-custom-input
+                            formControlName="password"
+                            label="Senha"
+                            inputId="password"
+                            inputType="password"
+                            iconName="bi-lock">
+                        </app-custom-input>
+                        
+                        <div class="d-grid"> 
+                            <button type="submit" class="btn btn-primary btn-lg btn-login" [disabled]="loginForm.invalid">{{isLogin ? 'Entrar' : 'Cadastrar'}}</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-body p-4 p-md-5 mt-5 no-account-section">
+                    <h2 class="card-title">{{isLogin ? 'Ainda não tem uma conta?' : 'Já tem uma conta?'}}</h2>
+                    <p class="mb-4">{{isLogin ? 'Cadastre agora mesmo' : 'Entre com suas credenciais'}}</p>
+                    <div class="d-grid"> 
+                        <button type="submit" class="btn btn-primary btn-lg btn-create-account" (click)="toggleForm()">{{isLogin ? 'Criar Conta' : 'Entrar'}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

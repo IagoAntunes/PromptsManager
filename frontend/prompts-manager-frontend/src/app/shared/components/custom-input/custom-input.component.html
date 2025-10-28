@@ -1,0 +1,21 @@
+<div class="custom-input-group">
+
+    <label [for]="inputId" class="form-label">{{ label }}</label>
+
+    <div class="input-wrapper">
+        <span *ngIf="iconName" class="input-icon-prefix">
+            <i class="bi" [ngClass]="iconName"></i>
+        </span>
+
+        <input
+            [id]="inputId"
+            [type]="inputType"
+            [value]="value"
+            [disabled]="isDisabled"
+            (input)="onInputValueChange($event)"
+            (blur)="onTouched()"
+            class="form-control"
+            [class.has-icon]="iconName"
+        >
+    </div>
+</div>

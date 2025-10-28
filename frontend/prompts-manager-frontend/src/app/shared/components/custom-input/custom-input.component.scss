@@ -1,0 +1,37 @@
+.custom-input-group {
+  margin-bottom: 1rem; 
+}
+
+.form-label{
+    color: white;
+}
+
+.input-wrapper {
+    position: relative; 
+    display: flex;
+    align-items: center;
+}
+
+.input-icon-prefix {
+    position: absolute;
+    left: 1rem; 
+    color: #6c757d; 
+    z-index: 2;
+    font-size: 1rem;
+}
+
+:host ::ng-deep .form-control {
+    background-color: transparent;
+    border: 1px solid #424242;
+    color: white; 
+
+    &.has-icon {
+        padding-left: 2.75rem; 
+    }
+
+    &:focus {
+        background-color: transparent;
+        border-color: #424242;
+        box-shadow: none;
+    }
+}

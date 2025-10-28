@@ -1,0 +1,9 @@
+@use 'app/styles/variables';
+@use 'app/styles/typography'; 
+@import "bootstrap/scss/bootstrap";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
