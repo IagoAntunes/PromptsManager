@@ -1,21 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms'; // <-- Para os formulários
+import { SharedModule } from 'src/app/shared/shared.module'; // <-- Para o app-custom-input
 
 import { HomeRoutingModule } from './home-routing.module';
-import { HomeComponent } from './home.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { SharedModule } from 'src/app/shared/shared.module';
-
+import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
+import { PromptEditComponent } from './pages/prompt-edit/prompt-edit.component';
+import { DashboardHomeComponent } from './pages/dashboard-home/dashboard-home.component';
 
 @NgModule({
   declarations: [
-    HomeComponent,
-    DashboardComponent
+    MainLayoutComponent,
+    PromptEditComponent,
+    DashboardHomeComponent
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
-    SharedModule
+    ReactiveFormsModule, 
+    SharedModule        
   ]
 })
 export class HomeModule { }

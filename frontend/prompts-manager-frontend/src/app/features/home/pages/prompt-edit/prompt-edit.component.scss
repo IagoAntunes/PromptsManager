@@ -1,0 +1,83 @@
+@import '../../../../styles/variables';
+
+.prompt-edit-wrapper{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 2rem;
+    box-sizing: border-box;
+
+    .page-header {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-bottom: 1rem;
+
+    }
+
+    .prompt-edit-container{
+        width: 100%;
+        max-width: 1200px; 
+        display: flex;
+        justify-content: center;
+    }
+
+    .prompt-edit-card{
+        width: 100%;
+        max-width: 800px; 
+        background-color: $gray-900;
+        padding: 1.5rem;
+        border-radius: 8px;
+    }
+
+    .title{
+        color: white;
+    }
+
+    .btnSave{
+        background-color: $accent-600;
+        border-color: $accent-600;
+        padding: 0.5rem 1.5rem;
+        min-width: 120px;
+        font-size: 1.1rem;
+    }
+
+    .prompt-form{
+
+        .form-input-prompt-title{
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .form-input-prompt-title,
+        .form-input-prompt-description {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0.5rem 0.75rem;
+            margin-bottom: 1rem;
+            background-color: $gray-900;
+            border: none;
+            color: $white;
+
+            &:focus{
+                box-shadow: none;
+                border: none;
+                outline: none;
+            }
+        }
+
+        textarea {
+            
+            resize: vertical;
+            background-color: $gray-800;
+        }
+
+        input::placeholder,
+        textarea::placeholder,
+        .form-input-custom::placeholder {
+            color: $gray-200;
+            opacity: 1;
+        }
+    }
+}

@@ -14,7 +14,7 @@
                     <h2 class="card-title">Acesse o site</h2>
                     <p class="mb-4" *ngIf="isLogin">Entre usando seu e-mail e senha cadastrados</p>
                     <p class="mb-4" *ngIf="!isLogin">Registre para acessar o site</p>
-                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <form [formGroup]="isLogin ? loginForm : registerForm" (ngSubmit)="onSubmit()">
                         <app-custom-input
                             formControlName="email"
                             label="E-mail"
@@ -32,7 +32,7 @@
                         </app-custom-input>
                         
                         <div class="d-grid"> 
-                            <button type="submit" class="btn btn-primary btn-lg btn-login" [disabled]="loginForm.invalid">{{isLogin ? 'Entrar' : 'Cadastrar'}}</button>
+                            <button type="submit" class="btn btn-primary btn-lg btn-login" [disabled]="(isLogin ? loginForm : registerForm).invalid || isLoading">{{isLogin ? 'Entrar' : 'Cadastrar'}}</button>
                         </div>
                     </form>
                 </div>

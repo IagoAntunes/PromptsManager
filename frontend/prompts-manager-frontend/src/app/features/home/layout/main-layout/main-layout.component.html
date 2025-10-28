@@ -1,0 +1,36 @@
+<div class="dashboard-wrapper" [class.sidebar-collapsed]="isSidebarCollapsed">
+  
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <img src="assets/text_logo.svg" alt="Logo" class="logo-full">
+      <img src="assets/icon_logo.svg" alt="Icon" class="logo-icon"> </div>
+
+    <div class="px-3 mb-3">
+      <a routerLink="/home/prompt/new" class="btn btn-primary w-100 btn-new-prompt">
+        <i class="bi bi-plus-lg"></i>
+        <span>Novo Prompt</span>
+      </a>
+    </div>
+
+    <nav class="sidebar-nav" >
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home/prompt/123" routerLinkActive="active">
+            <span>Prompt de Marketing</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="btn btn-toggle" (click)="toggleSidebar()">
+        <i class="bi bi-chevron-bar-left"></i>
+        <span>Recolher</span>
+      </button>
+    </div>
+  </aside>
+
+  <main class="content-area">
+    <router-outlet></router-outlet>
+  </main>
+</div>

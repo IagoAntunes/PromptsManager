@@ -1,0 +1,32 @@
+<div class="prompt-edit-wrapper">
+  <div class="prompt-edit-container">
+    <div class="prompt-edit-card">
+      <div class="page-header d-flex justify-content-end align-items-center mb-4">
+        <button class="btn btn-primary btn-lg btnSave" (click)="onSave()" [disabled]="promptForm.invalid">
+          Salvar
+        </button>
+      </div>
+
+      <form [formGroup]="promptForm" class="p-4 prompt-form">
+        
+        <div class="form-group mb-3">
+          <input 
+            type="text" 
+            class="form-input-prompt-title" 
+            placeholder="Título do prompt"
+          >
+        </div>
+
+        <div class="form-group mb-3">
+          <textarea
+            formControlName="description"
+            id="description"
+            class="form-input-prompt-description form-input-prompt-description-lg"
+            placeholder="Conteúdo do prompt..."
+            rows="15"></textarea>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

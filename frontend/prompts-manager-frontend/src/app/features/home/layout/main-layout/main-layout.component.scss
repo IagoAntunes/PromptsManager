@@ -1,0 +1,113 @@
+@import '../../../../styles/variables';
+
+:host {
+  display: block;
+}
+
+.dashboard-wrapper {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; 
+}
+
+.sidebar {
+  width: 280px; 
+  background-color: $gray-800;
+  border-right: 1px solid #dee2e6;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.2s ease-in-out;
+
+  .sidebar-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #dee2e6;
+    .logo-full { display: block; height: 30px; }
+    .logo-icon { display: none; height: 30px; }
+  }
+
+  .btn-new-prompt {
+    font-weight: 600;
+  }
+
+  .sidebar-nav {
+    padding: 1rem;
+    flex-grow: 1; 
+    overflow-y: auto; 
+
+    .nav-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #6c757d; 
+      padding: 0 0.5rem;
+    }
+
+    .nav-link {
+      color: #343a40;
+      font-weight: 500;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+
+      i {
+        font-size: 1.1rem;
+        margin-right: 0.75rem;
+        width: 24px;
+      }
+      
+      &.active {
+        color: #fff;
+      }
+    }
+  }
+
+  .sidebar-footer {
+    padding: 1rem;
+    border-top: 1px solid #dee2e6;
+    .btn-toggle {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6c757d;
+      font-weight: 500;
+
+      i { margin-right: 0.5rem; }
+      &:hover { background-color: #f1f3f5; }
+    }
+  }
+}
+
+.content-area {
+  flex-grow: 1; 
+  overflow-y: auto;
+  padding: 2rem;
+  background-color: $gray-900; 
+}
+
+
+.dashboard-wrapper.sidebar-collapsed {
+  .sidebar {
+    width: 90px; 
+    
+    .logo-full, .nav-title, .sidebar-nav span, .sidebar-footer span, .btn-new-prompt span {
+      display: none;
+    }
+    .logo-icon { display: block; margin: 0 auto; }
+
+    .btn-new-prompt, .btn-toggle {
+      justify-content: center;
+      i { margin-right: 0; }
+    }
+    
+    .nav-link {
+      justify-content: center;
+      i { margin-right: 0; }
+    }
+
+    .sidebar-footer i {
+      transform: rotate(180deg); 
+    }
+  }
+}
