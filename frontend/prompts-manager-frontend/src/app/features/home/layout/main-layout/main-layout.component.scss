@@ -14,20 +14,24 @@
 .sidebar {
   width: 280px; 
   background-color: $gray-800;
-  border-right: 1px solid #dee2e6;
   display: flex;
   flex-direction: column;
   transition: width 0.2s ease-in-out;
 
   .sidebar-header {
     padding: 1.5rem;
-    border-bottom: 1px solid #dee2e6;
     .logo-full { display: block; height: 30px; }
     .logo-icon { display: none; height: 30px; }
   }
 
+  .bi-plus-lg{
+    display: none;
+  }
+
   .btn-new-prompt {
     font-weight: 600;
+    background-color: $accent-600;
+    border: none;
   }
 
   .sidebar-nav {
@@ -44,27 +48,54 @@
     }
 
     .nav-link {
-      color: #343a40;
-      font-weight: 500;
-      border-radius: 6px;
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 0.75rem;
+      gap: 0.5rem;
 
-      i {
-        font-size: 1.1rem;
-        margin-right: 0.75rem;
-        width: 24px;
+      .nav-text {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
+        .nav-title {
+          font-weight: 600;
+          color: #fff;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+
+        .nav-subtitle {
+          font-size: 0.8rem;
+          color: #9aa0a6;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
       }
-      
-      &.active {
-        color: #fff;
+
+      .btn-delete {
+        background: transparent;
+        border: none;
+        color: #e74c3c; 
+        padding: 0.25rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+      .btn-delete:hover {
+        color: #ff6b6b;
       }
     }
   }
 
   .sidebar-footer {
     padding: 1rem;
-    border-top: 1px solid #dee2e6;
     .btn-toggle {
       width: 100%;
       display: flex;
@@ -94,6 +125,11 @@
     .logo-full, .nav-title, .sidebar-nav span, .sidebar-footer span, .btn-new-prompt span {
       display: none;
     }
+
+    .bi-plus-lg{
+      display: block;
+    }
+
     .logo-icon { display: block; margin: 0 auto; }
 
     .btn-new-prompt, .btn-toggle {
