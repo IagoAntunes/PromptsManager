@@ -34,6 +34,15 @@
         color: white;
     }
 
+    .btnCopy{
+        margin-right: 1rem;
+        background-color: $gray-700;
+        border-color: $gray-700;
+        padding: 0.5rem 1.5rem;
+        min-width: 120px;
+        font-size: 1.1rem;
+    }
+
     .btnSave{
         background-color: $accent-600;
         border-color: $accent-600;

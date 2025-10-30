@@ -36,7 +36,7 @@ export class AuthService {
   saveToken(response: LoginUserResponse) : void {
     localStorage.setItem(this.TOKEN_KEY, response.accessToken);
     
-    localStorage.setItem(this.EXPIRES_KEY, response.accessTokenExpiration);
+    localStorage.setItem(this.EXPIRES_KEY, response.accessTokenExpires);
   }
 
   getToken(): string | null {

@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of, tap } from 'rxjs';
 import { CreatePromptRequest } from 'src/app/features/home/models/create-prompt-request';
 import { PromptModel } from 'src/app/features/home/models/prompt-model';
+import { UpdatePromptRequest } from 'src/app/features/home/models/update-prompt-request';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,12 @@ export class PromptService {
     );
   }
 
+  private refreshPromptsFromServer(): Observable<PromptModel[]> {
+    return this.http.get<PromptModel[]>(this.url).pipe(
+      tap(prompts => this.promptsState$.next(prompts))
+    );
+  }
+
   getPromptById(id: string): Observable<PromptModel | undefined> {
     const currentState = this.promptsState$.getValue();
 
@@ -46,11 +53,27 @@ export class PromptService {
   }
 
   createPrompt(request:CreatePromptRequest) : Observable<any>{
-    return this.http.post<any>(`${this.url}`, request);
+    return this.http.post<any>(`${this.url}`, request).pipe(
+      tap(() => {
+        this.refreshPromptsFromServer().subscribe({ error: () => {} });
+      })
+    );
+  }
+
+  updatePrompt(request:UpdatePromptRequest) : Observable<any>{
+    return this.http.put<any>(`${this.url}`, request).pipe(
+      tap(() => {
+        this.refreshPromptsFromServer().subscribe({ error: () => {} });
+      })
+    );
   }
 
   deletePrompt(id:string) : Observable<any>{
-    return this.http.delete(`${this.url}`, { params: { promptId: id } }); 
+    return this.http.delete(`${this.url}`, { params: { promptId: id } }).pipe(
+      tap(() => {
+        this.refreshPromptsFromServer().subscribe({ error: () => {} });
+      })
+    );
   }
 
 }

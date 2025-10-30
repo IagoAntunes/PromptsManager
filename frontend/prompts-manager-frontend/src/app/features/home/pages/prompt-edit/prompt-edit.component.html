@@ -2,7 +2,7 @@
   <div class="prompt-edit-container">
     <div class="prompt-edit-card">
       <div class="page-header d-flex justify-content-end align-items-center mb-4">
-        <button class="btn btn-secondary btn-lg">
+        <button class="btn btn-secondary btn-lg btnCopy" type="button" *ngIf="!isNewPrompt" (click)="copyDescription()">
           <i class="fa fa-copy"></i>
           Copiar
         </button>
