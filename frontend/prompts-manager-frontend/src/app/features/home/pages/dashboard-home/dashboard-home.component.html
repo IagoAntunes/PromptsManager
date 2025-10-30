@@ -1,1 +1,15 @@
-<p>dashboard-home works!</p>
+<div class="dashboard-home-wrapper d-flex align-items-center justify-content-center" style="height:100%;">
+    <div class="card text-center" style="max-width:720px; width:100%; background-color: #0f0f0f; border: 1px solid #222;">
+        <div class="card-body p-5">
+            <h3 class="card-title mb-3" style="color: #fff;">Nenhum prompt selecionado</h3>
+            <p class="card-text mb-4" style="color: #cfcfcf;">
+                Selecione um prompt na barra lateral à esquerda para ver e editar o conteúdo.
+                Você também pode criar um novo prompt.
+            </p>
+            <div class="d-flex justify-content-center gap-2">
+                <a routerLink="/home/prompt/new" class="btn btn-primary">Criar novo prompt</a>
+                <a routerLink="/home/dashboard" class="btn btn-outline-secondary">Voltar ao dashboard</a>
+            </div>
+        </div>
+    </div>
+</div>
