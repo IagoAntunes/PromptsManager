@@ -5,19 +5,16 @@
 </p>
 
 <p align="center">
-  <!-- Badges do Frontend -->
-  <img src="https://img.shields.io/badge/Angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white" alt="Angular Badge" />
+  <img src="https://img.shields.io/badge/Angular%2019-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white" alt="Angular Badge" />
   <img src="https://img.shields.io/badge/TypeScript-3178C6.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="Typescript Badge" />
-  <img src="https://img.shields.io/badge/Bootstrap-7952B3.svg?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap Badge" />
-  <!-- Badges do Backend -->
-  <img src="https://img.shields.io/badge/.NET-512BD4.svg?style=for-the-badge&logo=dotnet&logoColor=white" alt=".NET Badge" />
+  <img src="https://img.shields.io/badge/Sass-CC6699.svg?style=for-the-badge&logo=sass&logoColor=white" alt="Sass Badge" />
+  <img src="https://img.shields.io/badge/.NET%209-512BD4.svg?style=for-the-badge&logo=dotnet&logoColor=white" alt=".NET Badge" />
   <img src="https://img.shields.io/badge/C%23-239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white" alt="C# Badge" />
   <img src="https://img.shields.io/badge/SQL%20Server-CC2927.svg?style=for-the-badge&logo=microsoftsqlserver&logoColor=white" alt="SQL Server Badge" />
 </p>
 
-
 <p align="center">
-  <img width="1920" height="1080" alt="Cover (16)" src="https://github.com/user-attachments/assets/8910ab57-445e-403c-b73e-4feadc43a36c" />
+  <img width="100%" alt="BookManager Banner" src="https://github.com/user-attachments/assets/b1e5bf5f-dcf1-4191-ac83-fac672ad59c5" />
 </p>
 
 ---
@@ -26,46 +23,39 @@
 
 ### 🛠️ Project Description
 
-**PromptsManager** is a full-stack web application designed to help users create, manage, and organize their personal AI prompts.  
-It features a secure authentication system (using **JWT**) and a dedicated dashboard for full **CRUD** (Create, Read, Update, Delete) operations on user-specific prompts.
+**BookManager** is a high-performance full-stack web application designed for personal library organization. Users can manage their reading progress through a dynamic dashboard and a custom-built interface. The project emphasizes modern reactive patterns and a proprietary design system.
 
 ### 🧰 Tools and Technologies Used
 
 #### Frontend
-- **Angular 🅰️** — SPA framework for the user interface.  
-- **TypeScript ⌨️** — Main frontend programming language.  
-- **HTML & SCSS 🎨** — Structure and styling of the application.  
-- **Bootstrap & ng-bootstrap 🅱️** — Component library and responsive grid system.  
-- **RxJS ⚡** — For asynchronous operations and state management.  
+- **Angular 19 🅰️** — Using **Standalone Components** and **Signals** for fine-grained reactivity.
+- **TypeScript ⌨️** — Strongly typed development for robust code.
+- **SCSS 🎨** — Advanced styling with Mixins and Variables for a custom Design System.
+- **Reactive Forms 📝** — Complex validation and data handling.
+- **RxJS ⚡** — Asynchronous stream management and HTTP flow control.
+- **ngx-toastr 🔔** — Real-time user feedback notifications.
 
 #### Backend
-- **ASP.NET Core 🚀** — Framework for building the REST API.  
-- **C# ♯** — Main backend programming language.  
-- **Entity Framework Core 💾** — ORM for data access with SQL Server.  
-- **SQL Server 🗃️** — Relational database.  
-- **JWT (JSON Web Tokens) 🔑** — For securing the API endpoints.  
+- **ASP.NET Core 🚀** — High-performance REST API.
+- **C# ♯** — Main backend language with modern features.
+- **Entity Framework Core 💾** — Data persistence and ORM.
+- **SQL Server 🗃️** — Relational database.
+- **JWT (JSON Web Tokens) 🔑** — Secure authentication and authorization.
 
 ### 🏛️ Project Architecture
 
-The project follows a **monorepo-style structure** with a clear separation between frontend and backend applications.
+#### Angular Frontend (Modern Reactive Architecture)
+The frontend was built without external UI libraries, focusing on a **Custom Design System**:
+- **Signals & Computed** — Used for the Dashboard (counters) and real-time filtering (Search + Status) with maximum performance.
+- **Custom Components** — Development of `c-button`, `c-field`, `c-modal`, `c-dropdown`, `c-card`, and `c-rating`.
+- **HTTP Interceptors** — Automatic JWT injection and 401 (Unauthorized) error handling.
+- **Route Guards** — Protection of private routes and authentication flow management.
 
-#### Angular Frontend Architecture
-The frontend follows best practices for scalability and maintenance:
-
-- **CoreModule** — Provides singleton services (`AuthService`, `PromptService`), HTTP Interceptors (for JWT), and Route Guards (for auth).  
-- **SharedModule** — Contains reusable components (like `CustomInputComponent`) and imported UI modules (`ng-bootstrap`, etc.).  
-- **Feature Modules** — Lazy-loaded modules:
-  - `AuthModule`: Login and Registration pages.  
-  - `HomeModule`: Main dashboard, sidebar layout, and prompt management.  
-- **Reactive Forms** — Used for robust form handling and validation.
-
-#### ASP.NET Core Backend Architecture
-The backend is built following a **Clean Architecture (4-layer)** pattern:
-
-- **API** — Entry point containing Controllers, DTOs (Request/Response), and service registration.  
-- **Application** — Business logic, services, and interfaces (e.g. `IPromptService`).  
-- **Infrastructure** — Implements `Application` layer interfaces. Contains Repositories, DbContext (Entity Framework), and service implementations (e.g. `TokenService`).  
-- **Domain** — Core of the app with Entities, Repository Interfaces, and custom Domain Errors.  
+#### ASP.NET Core Backend (Clean Architecture)
+- **API Layer** — Controllers, DTOs (Data Transfer Objects), and Middleware configuration.
+- **Application Layer** — Business logic and service orchestration.
+- **Infrastructure Layer** — Data Access (EF Core), Repositories, and Security (TokenService).
+- **Domain Layer** — Core entities and business rules.
 
 ---
 
@@ -73,49 +63,36 @@ The backend is built following a **Clean Architecture (4-layer)** pattern:
 
 ### 🛠️ Descrição do Projeto
 
-**PromptsManager** é uma aplicação web full-stack projetada para ajudar usuários a criar, gerenciar e organizar seus prompts pessoais de IA.  
-O projeto possui um sistema de autenticação seguro (usando **JWT**) e um dashboard dedicado para operações **CRUD** (Criar, Ler, Atualizar, Deletar) completas dos prompts de cada usuário.
+**BookManager** é uma aplicação web full-stack de alta performance projetada para a organização de bibliotecas pessoais. Os usuários podem gerenciar seu progresso de leitura através de um dashboard dinâmico e uma interface construída sob medida. O projeto enfatiza padrões reativos modernos e um design system próprio.
 
 ### 🧰 Ferramentas e Tecnologias Utilizadas
 
 #### Frontend
-- **Angular 🅰️** — Framework SPA para a interface do usuário.  
-- **TypeScript ⌨️** — Linguagem principal do frontend.  
-- **HTML & SCSS 🎨** — Estrutura e estilização da aplicação.  
-- **Bootstrap & ng-bootstrap 🅱️** — Biblioteca de componentes e sistema de grid responsivo.  
-- **RxJS ⚡** — Para operações assíncronas e gerenciamento de estado.  
+- **Angular 19 🅰️** — Utilizando **Standalone Components** e **Signals** para reatividade de alta performance.
+- **TypeScript ⌨️** — Desenvolvimento tipado para um código robusto e seguro.
+- **SCSS 🎨** — Estilização avançada com Mixins e Variáveis para um Design System customizado.
+- **Reactive Forms 📝** — Validação complexa e manipulação de formulários.
+- **RxJS ⚡** — Gerenciamento de fluxos assíncronos e controle de requisições HTTP.
+- **ngx-toastr 🔔** — Notificações de feedback em tempo real para o usuário.
 
 #### Backend
-- **ASP.NET Core 🚀** — Framework para a construção da REST API.  
-- **C# ♯** — Linguagem principal do backend.  
-- **Entity Framework Core 💾** — ORM para acesso a dados com o SQL Server.  
-- **SQL Server 🗃️** — Banco de dados relacional.  
-- **JWT (JSON Web Tokens) 🔑** — Para segurança dos endpoints da API.  
+- **ASP.NET Core 🚀** — Construção de uma REST API de alta performance.
+- **C# ♯** — Linguagem principal do backend com recursos modernos.
+- **Entity Framework Core 💾** — Persistência de dados e ORM.
+- **SQL Server 🗃️** — Banco de dados relacional.
+- **JWT (JSON Web Tokens) 🔑** — Segurança e autenticação de endpoints.
 
 ### 🏛️ Arquitetura do Projeto
 
-O projeto é arquitetado com uma clara separação de responsabilidades, apresentando uma estrutura **monorepo-style** com aplicações frontend e backend distintas.
-
-#### Arquitetura Frontend (Angular)
-O frontend segue as melhores práticas para escalabilidade e manutenção:
-
-- **CoreModule** — Fornece serviços singleton (`AuthService`, `PromptService`), HTTP Interceptors (para o JWT) e Route Guards (para autenticação).  
-- **SharedModule** — Contém componentes reutilizáveis (como `CustomInputComponent`) e módulos compartilhados (como `ng-bootstrap`).  
-- **Feature Modules** — Dividido em módulos com lazy-loading:
-  - `AuthModule`: Gerencia as páginas de Login e Registro.  
-  - `HomeModule`: Gerencia o dashboard principal, o layout com sidebar e o gerenciamento de prompts.  
-- **Reactive Forms** — Usado para manipulação e validação robusta de formulários.
+#### Arquitetura Frontend (Angular Moderno)
+O frontend foi construído sem bibliotecas de UI externas, focando em um **Design System Próprio**:
+- **Signals & Computed** — Utilizados para o Dashboard (contadores) e filtragem em tempo real (Busca + Status) com performance máxima.
+- **Componentes Customizados** — Desenvolvimento de `c-button`, `c-field`, `c-modal`, `c-dropdown`, `c-card` e `c-rating`.
+- **HTTP Interceptors** — Injeção automática de JWT e tratamento de erros 401 (Não autorizado).
+- **Route Guards** — Proteção de rotas privadas e gerenciamento do fluxo de autenticação.
 
 #### Arquitetura Backend (ASP.NET Core)
-O backend segue o padrão **Clean Architecture** com 4 camadas:
-
-- **API** — Ponto de entrada, contendo Controllers, DTOs (Request/Response) e registro de serviços.  
-- **Application** — Contém a lógica de negócio, serviços e interfaces (ex: `IPromptService`).  
-- **Infrastructure** — Implementa as interfaces da camada `Application`. Contém os Repositories, o DbContext (Entity Framework) e implementações como `TokenService`.  
-- **Domain** — Núcleo da aplicação. Contém as Entidades, Interfaces de Repositórios e Erros de Domínio personalizados.  
-
----
-
-<p align="center">
-  <a href="#-português">⬆️ Voltar ao topo</a>
-</p>
+O backend segue os princípios de **Clean Architecture**:
+- **Camada de API** — Controllers, DTOs (Data Transfer Objects) e configuração de Middlewares.
+- **Camada de Aplicação** — Lógica de negócio e orquestração de serviços.
+- **Camada de Infraestrutura** — Acesso a dados (EF Core), Repositórios e Segurança
